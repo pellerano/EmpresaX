@@ -1,0 +1,15 @@
+ SqlConnection sqlcon = new SqlConnection(@"Data Source=GOICOECHEA;Initial Catalog=Biblioteca;Integrated Security=True");
+            string query = "Select * from tbl_Usuario Where User_Usuario = '" + txtUsuario.Text.Trim() + "' and User_Contraseña = '" + txtContraseña.Text.Trim() + "'";
+            SqlDataAdapter sda = new SqlDataAdapter(query,sqlcon);
+            DataTable dtbl = new DataTable();
+            sda.Fill(dtbl);
+            if (dtbl.Rows.Count == 1)
+            {
+                Main objMain = new Main();
+                this.Hide();
+                objMain.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usuario/Contraseña Incorrecta.");
+            }

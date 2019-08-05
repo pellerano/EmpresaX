@@ -1,0 +1,11 @@
+/*Numeros, No letras*/
+if ((!char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+
+/*Letras, No numeros*/
+if ((!char.IsLetter(e.KeyChar)) && (!char.IsWhiteSpace(e.KeyChar)))
+            {
+                e.Handled = true;
+            }

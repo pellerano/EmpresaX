@@ -1,0 +1,9 @@
+SqlConnection con = new SqlConnection(conString);
+                con.Open();
+                if (con.State == System.Data.ConnectionState.Open)
+                {
+                    string q = "Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellidoEst.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')";
+                    SqlCommand cmd = new SqlCommand(q, con);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Estudiante Registrado con Exito!");
+                }

@@ -1,0 +1,46 @@
+--IF AUTHOR && GENRE DONT EXIST
+
+INSERT INTO Libro_Mstr(Libro_ISBN, Libro_Seccion, Libro_Titulo)
+VALUES ('txtISBN','txtSeccion','txtTitulo')
+INSERT INTO Autor_Mstr(Autor_Nombre)
+VALUES ('txtAutor')
+INSERT INTO Genero_Mstr(Genero_Nombre)
+VALUES ('txtGenero')
+UPDATE Libro_Mstr
+SET Libro_Mstr.Autor_ID = Autor_Mstr.Autor_ID
+FROM Autor_Mstr
+WHERE Libro_Mstr.Libro_ISBN = 'txtISBN' AND Autor_Nombre = 'txtAutor'
+UPDATE Libro_Mstr
+SET Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID
+FROM Genero_Mstr
+WHERE Libro_Mstr.Libro_ISBN = 'txtISBN' AND Genero_Nombre = 'txtGenero';
+
+--IF AUTHOR EXIST & GENRE DOESNT EXIST
+
+INSERT INTO Libro_Mstr(Libro_ISBN, Libro_Seccion, Libro_Titulo)
+VALUES ('txtISBN','txtSeccion','txtTitulo')
+INSERT INTO Genero_Mstr(Genero_Nombre)
+VALUES ('txtAutor')
+UPDATE Libro_Mstr
+SET Libro_Mstr.Autor_ID = Autor_Mstr.Autor_ID
+FROM Autor_Mstr
+WHERE Libro_Mstr.Libro_ISBN = 'txtISBN' AND Autor_Nombre = 'txtAutor'
+UPDATE Libro_Mstr
+SET Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID
+FROM Genero_Mstr
+WHERE Libro_Mstr.Libro_ISBN = 'txtISBN' AND Genero_Nombre = 'txtGenero';
+
+--IF AUTHOR DOESN'T EXIST & GENRE DOES EXIST
+
+INSERT INTO Libro_Mstr(Libro_ISBN, Libro_Seccion, Libro_Titulo)
+VALUES ('txtISBN','txtSeccion','txtTitulo')
+INSERT INTO Autor_Mstr(Autor_Nombre)
+VALUES ('txtAutor')
+UPDATE Libro_Mstr
+SET Libro_Mstr.Autor_ID = Autor_Mstr.Autor_ID
+FROM Autor_Mstr
+WHERE Libro_Mstr.Libro_ISBN = 'txtISBN' AND Autor_Nombre = 'txtAutor'
+UPDATE Libro_Mstr
+SET Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID
+FROM Genero_Mstr
+WHERE Libro_Mstr.Libro_ISBN = 'txtISBN' AND Genero_Nombre = 'txtGenero';

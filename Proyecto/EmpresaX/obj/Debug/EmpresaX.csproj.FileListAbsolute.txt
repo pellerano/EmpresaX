@@ -1,0 +1,22 @@
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\bin\Debug\EmpresaX.exe.config
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\bin\Debug\EmpresaX.exe
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\bin\Debug\EmpresaX.pdb
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\obj\Debug\EmpresaX.csprojAssemblyReference.cache
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\obj\Debug\EmpresaX.Properties.Resources.resources
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\obj\Debug\EmpresaX.csproj.GenerateResource.cache
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\obj\Debug\EmpresaX.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\obj\Debug\EmpresaX.exe
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\obj\Debug\EmpresaX.pdb
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\obj\Debug\EmpresaX.Login.resources
+C:\Users\User\Desktop\INF-353\Proyecto\EmpresaX\obj\Debug\EmpresaX.Main.resources
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\bin\Debug\EmpresaX.exe.config
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\bin\Debug\EmpresaX.exe
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\bin\Debug\EmpresaX.pdb
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.csprojAssemblyReference.cache
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.Login.resources
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.Main.resources
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.Properties.Resources.resources
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.csproj.GenerateResource.cache
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.exe
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.pdb

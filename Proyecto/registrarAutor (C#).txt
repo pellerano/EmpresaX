@@ -1,0 +1,116 @@
+//OFICIAL
+
+if ((txtISBN.Text == "")
+               || (txtAutor.Text == "")
+               || (txtTitulo.Text == "")
+               || (txtGenero.Text == "")
+               || (txtSeccion.Text == "")
+               || (txtISBN.Text == "000-0-00-000000-0")
+               || (txtISBN.Text == "   - -  -      -"))
+
+            {
+                MessageBox.Show("Por favor llenar todos los campos.");
+            }
+
+            else
+            {
+                try
+                {   
+		    //Contadores
+		    string a = @"(select count(*) from Libro_Mstr where Libro_Titulo ='" + txtTitulo.Text.ToString() + "')";
+		    string b = @"(select count(*) from Autor_Mstr where Autor_Nombre ='" + txtAutor.Text.ToString() + "')";
+                    string c = @"(select count(*) from Genero_Mstr where Genero_Nombre ='" + txtGenero.Text.ToString() + "')";
+
+		    //Commands SQL
+
+                    //Insertar Autor
+			SqlCommand amd = new SqlCommand("Insert into Autor_Mstr(Autor_Nombre)values('"+ txtAutor.Text.ToString() + "')", mycon);
+ 
+		    //Insertar Genero
+			SqlCommand bmd = new SqlCommand("Insert into Genero_Mstr(Genero_Nombre)values('" + txtGenero.Text.ToString() + "')", mycon);
+ 
+		    //Insertar Info Libro
+			SqlCommand cmd = new SqlCommand("Insert into Libro_Mstr(Libro_ISBN, Libro_Titulo, Libro_Seccion)values('" + txtISBN.Text.ToString() + "','" + txtTitulo.Text.ToString() + "','" + txtSeccion.Text.ToString() + "')", mycon);
+ 
+		    //Update Autor_ID
+			SqlCommand dmd = new SqlCommand("Update Libro_Mstr set Libro_Mstr.Autor_ID = Autor_Mstr.Autor_ID from Autor_Mstr where Libro_Mstr.Libro_ISBN = '" + txtISBN.Text.ToString() + "' and Autor_Mstr.Autor_Nombre = '"+ txtAutor.Text.ToString() + "')", mycon);
+ 
+		    //Update Genero_ID
+			SqlCommand emd = new SqlCommand("Update Libro_Mstr set Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID from Genero_Mstr where Genero_Nombre = '" + txtGenero.Text.ToString() + "')", mycon);
+		    
+		    mycon.Open();
+                    
+		    //Contadores en SQL
+		    SqlCommand cmda = new SqlCommand(a, mycon);
+		    SqlCommand cmdb = new SqlCommand(b, mycon);
+		    SqlCommand cmdc = new SqlCommand(c, mycon);
+                    int counta = (int)cmda.ExecuteScalar();
+		    int countb = (int)cmdb.ExecuteScalar();
+      		    int countc = (int)cmdc.ExecuteScalar();
+                    
+		    //Agregar Libro Nuevo
+		    if (counta = 0)
+		    && (countb = 0)
+		    && (countc = 0)
+                    {
+                        amd.ExecuteNonQuery();
+                        bmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+			dmd.ExecuteNonQuery();
+			emd.ExecuteNonQuery();
+                        MessageBox.Show("Libro Registrado con Exito!");
+                    }
+		    
+		    //Agregar Libro Nuevo con Genero ya existente
+                    else if (counta = 0)
+		    && (countb = 0)
+		    && (countc > 0)
+                    {
+			amd.ExecuteNonQuery();
+			cmd.ExecuteNonQuery();
+			dmd.ExecuteNonQuery();
+			emd.ExecuteNonQuery();
+			MessageBox.Show("Libro Registrado con Exito!");
+                    }
+
+		    //Agregar Libro Nuevo con Autor Existente
+		    else if (counta = 0)
+		    && (countb > 0)
+		    && (countc = 0)
+		    {
+			bmd.ExecuteNonQuery();
+			cmd.ExecuteNonQuery();
+			dmd.ExecuteNonQuery();
+			emd.ExecuteNonQuery();
+			MessageBox.Show("Libro Registrado con Exito!");
+		    }
+	
+		    //Agregar Libro Nuevo con Autor y Genero Existente
+		    else if (counta a = 0)
+		    && (countb > 0)
+		    && (countc > 0)
+		    {
+			cmd.ExecuteNonQuery();
+			dmd.ExecutoNonQuery();
+			emd.ExecuteNonQuery();
+			MessageBox.Show("Libro Registrado con Exito!");
+		    }
+
+		    else
+		    {
+			MessageBox.Show("Este libro ya está regitrado.");
+   		    }
+
+                    mycon.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if (mycon.State == ConnectionState.Open)
+                        mycon.Close();
+                }
+            }
+        }
