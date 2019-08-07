@@ -35,7 +35,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.mainBox = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtApellidoEst = new System.Windows.Forms.MaskedTextBox();
@@ -56,15 +56,20 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtSeccion = new System.Windows.Forms.TextBox();
+            this.txtGenero = new System.Windows.Forms.TextBox();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.txtAutor = new System.Windows.Forms.MaskedTextBox();
+            this.txtISBN = new System.Windows.Forms.MaskedTextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.txtISBN = new System.Windows.Forms.MaskedTextBox();
-            this.txtAutor = new System.Windows.Forms.MaskedTextBox();
-            this.txtTitulo = new System.Windows.Forms.TextBox();
-            this.txtGenero = new System.Windows.Forms.TextBox();
-            this.txtSeccion = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -142,7 +147,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.txtApellido);
             this.tabPage2.Controls.Add(this.txtTelefono);
             this.tabPage2.Controls.Add(this.txtEmail);
             this.tabPage2.Controls.Add(this.txtApellidoEst);
@@ -159,15 +164,16 @@
             this.tabPage2.Text = "Registrar Estudiante";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtApellido
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(508, 290);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 18);
-            this.textBox1.TabIndex = 15;
+            this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtApellido.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtApellido.Location = new System.Drawing.Point(508, 290);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(221, 18);
+            this.txtApellido.TabIndex = 3;
+            this.txtApellido.Click += new System.EventHandler(this.TxtApellido_Click);
             // 
             // txtTelefono
             // 
@@ -179,8 +185,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.PromptChar = ' ';
             this.txtTelefono.Size = new System.Drawing.Size(221, 18);
-            this.txtTelefono.TabIndex = 14;
-            this.txtTelefono.Text = "0000000000";
+            this.txtTelefono.TabIndex = 5;
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefono.Click += new System.EventHandler(this.TxtTelefono_Click_1);
             this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtTelefono_KeyDown_1);
@@ -193,7 +198,7 @@
             this.txtEmail.Location = new System.Drawing.Point(508, 342);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(221, 18);
-            this.txtEmail.TabIndex = 13;
+            this.txtEmail.TabIndex = 4;
             this.txtEmail.Click += new System.EventHandler(this.TxtEmail_Click_1);
             this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtEmail_KeyDown_1);
             // 
@@ -207,10 +212,10 @@
             this.txtApellidoEst.Name = "txtApellidoEst";
             this.txtApellidoEst.PromptChar = ' ';
             this.txtApellidoEst.Size = new System.Drawing.Size(221, 18);
-            this.txtApellidoEst.TabIndex = 12;
+            this.txtApellidoEst.TabIndex = 1;
             this.txtApellidoEst.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtApellidoEst.Click += new System.EventHandler(this.TxtApellidoEst_Click_1);
-            this.txtApellidoEst.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtApellidoEst_KeyDown_1);
+            this.txtApellidoEst.Click += new System.EventHandler(this.TxtApellido_Click_1);
+            this.txtApellidoEst.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtApellido_KeyDown_1);
             // 
             // txtNombreEst
             // 
@@ -222,7 +227,7 @@
             this.txtNombreEst.Name = "txtNombreEst";
             this.txtNombreEst.PromptChar = ' ';
             this.txtNombreEst.Size = new System.Drawing.Size(221, 18);
-            this.txtNombreEst.TabIndex = 11;
+            this.txtNombreEst.TabIndex = 2;
             this.txtNombreEst.Click += new System.EventHandler(this.TxtNombreEst_Click_1);
             this.txtNombreEst.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreEst_KeyDown_1);
             // 
@@ -236,8 +241,7 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.PromptChar = ' ';
             this.txtMatricula.Size = new System.Drawing.Size(221, 18);
-            this.txtMatricula.TabIndex = 10;
-            this.txtMatricula.Text = "000000";
+            this.txtMatricula.TabIndex = 1;
             this.txtMatricula.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtMatricula.Click += new System.EventHandler(this.TxtMatricula_Click_1);
             this.txtMatricula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtMatricula_KeyDown_1);
@@ -253,7 +257,7 @@
             this.btnCrear.Location = new System.Drawing.Point(664, 443);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(69, 29);
-            this.btnCrear.TabIndex = 9;
+            this.btnCrear.TabIndex = 6;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = false;
             this.btnCrear.Click += new System.EventHandler(this.BtnCrear_Click_1);
@@ -269,7 +273,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(366, 446);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(78, 23);
-            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -285,6 +289,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button2);
             this.tabPage3.Controls.Add(this.txtRepContraseñaUsuario);
             this.tabPage3.Controls.Add(this.txtContraseñaUsuario);
             this.tabPage3.Controls.Add(this.txtU_NombreUsuario);
@@ -313,6 +318,7 @@
             this.txtRepContraseñaUsuario.Size = new System.Drawing.Size(221, 18);
             this.txtRepContraseñaUsuario.TabIndex = 19;
             this.txtRepContraseñaUsuario.Click += new System.EventHandler(this.TxtRepContraseñaUsuario_Click_1);
+            this.txtRepContraseñaUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtRepContraseñaUsuario_KeyDown_1);
             // 
             // txtContraseñaUsuario
             // 
@@ -325,6 +331,7 @@
             this.txtContraseñaUsuario.Size = new System.Drawing.Size(221, 18);
             this.txtContraseñaUsuario.TabIndex = 18;
             this.txtContraseñaUsuario.Click += new System.EventHandler(this.TxtContraseñaUsuario_Click_1);
+            this.txtContraseñaUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtContraseñaUsuario_KeyDown_1);
             // 
             // txtU_NombreUsuario
             // 
@@ -336,6 +343,7 @@
             this.txtU_NombreUsuario.Size = new System.Drawing.Size(221, 18);
             this.txtU_NombreUsuario.TabIndex = 17;
             this.txtU_NombreUsuario.Click += new System.EventHandler(this.TxtU_NombreUsuario_Click_1);
+            this.txtU_NombreUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtU_NombreUsuario_KeyDown_1);
             // 
             // txtEmailUsuario
             // 
@@ -347,6 +355,7 @@
             this.txtEmailUsuario.Size = new System.Drawing.Size(221, 18);
             this.txtEmailUsuario.TabIndex = 16;
             this.txtEmailUsuario.Click += new System.EventHandler(this.TxtEmailUsuario_Click_1);
+            this.txtEmailUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtEmailUsuario_KeyDown_1);
             // 
             // txtApellidoUsuario
             // 
@@ -361,6 +370,7 @@
             this.txtApellidoUsuario.TabIndex = 13;
             this.txtApellidoUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtApellidoUsuario.Click += new System.EventHandler(this.TxtApellidoUsuario_Click_1);
+            this.txtApellidoUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtApellidoUsuario_KeyDown_1);
             // 
             // txtNombreUsuario
             // 
@@ -374,6 +384,7 @@
             this.txtNombreUsuario.Size = new System.Drawing.Size(221, 18);
             this.txtNombreUsuario.TabIndex = 12;
             this.txtNombreUsuario.Click += new System.EventHandler(this.TxtNombreUsuario_Click_1);
+            this.txtNombreUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtNombreUsuario_KeyDown_1);
             // 
             // pictureBox5
             // 
@@ -418,6 +429,10 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.label2);
+            this.tabPage4.Controls.Add(this.label1);
             this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.txtSeccion);
             this.tabPage4.Controls.Add(this.txtGenero);
@@ -431,6 +446,95 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Registar Libro";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 10F);
+            this.button1.Location = new System.Drawing.Point(663, 436);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(56, 23);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Crear";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // txtSeccion
+            // 
+            this.txtSeccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSeccion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSeccion.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtSeccion.Location = new System.Drawing.Point(498, 384);
+            this.txtSeccion.MaxLength = 20;
+            this.txtSeccion.Name = "txtSeccion";
+            this.txtSeccion.Size = new System.Drawing.Size(221, 18);
+            this.txtSeccion.TabIndex = 16;
+            this.txtSeccion.Click += new System.EventHandler(this.TxtSeccion_Click);
+            // 
+            // txtGenero
+            // 
+            this.txtGenero.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGenero.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGenero.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtGenero.Location = new System.Drawing.Point(498, 332);
+            this.txtGenero.MaxLength = 15;
+            this.txtGenero.Name = "txtGenero";
+            this.txtGenero.Size = new System.Drawing.Size(221, 18);
+            this.txtGenero.TabIndex = 15;
+            this.txtGenero.Click += new System.EventHandler(this.TxtGenero_Click);
+            // 
+            // txtTitulo
+            // 
+            this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTitulo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitulo.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtTitulo.Location = new System.Drawing.Point(498, 280);
+            this.txtTitulo.MaxLength = 50;
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(221, 18);
+            this.txtTitulo.TabIndex = 14;
+            this.txtTitulo.Click += new System.EventHandler(this.TxtTitulo_Click);
+            // 
+            // txtAutor
+            // 
+            this.txtAutor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAutor.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAutor.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtAutor.Location = new System.Drawing.Point(498, 228);
+            this.txtAutor.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL" +
+    "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
+            this.txtAutor.Name = "txtAutor";
+            this.txtAutor.PromptChar = ' ';
+            this.txtAutor.Size = new System.Drawing.Size(221, 18);
+            this.txtAutor.TabIndex = 13;
+            this.txtAutor.Click += new System.EventHandler(this.TxtAutor_Click);
+            // 
+            // txtISBN
+            // 
+            this.txtISBN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtISBN.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtISBN.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtISBN.Location = new System.Drawing.Point(498, 176);
+            this.txtISBN.Mask = "0000000000000";
+            this.txtISBN.Name = "txtISBN";
+            this.txtISBN.PromptChar = ' ';
+            this.txtISBN.Size = new System.Drawing.Size(221, 18);
+            this.txtISBN.TabIndex = 11;
+            this.txtISBN.Text = "0000000000000";
+            this.txtISBN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtISBN.ValidatingType = typeof(int);
+            this.txtISBN.Click += new System.EventHandler(this.TxtISBN_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(-59, -40);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(1107, 598);
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
             // 
             // tabPage5
             // 
@@ -450,90 +554,67 @@
             this.tabPage6.Text = "Devoluciones";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // pictureBox6
+            // label1
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(-59, -40);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(1107, 598);
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(440, 281);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 17);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Título";
             // 
-            // txtISBN
+            // label2
             // 
-            this.txtISBN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtISBN.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtISBN.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtISBN.Location = new System.Drawing.Point(498, 176);
-            this.txtISBN.Mask = "0000000000000";
-            this.txtISBN.Name = "txtISBN";
-            this.txtISBN.PromptChar = ' ';
-            this.txtISBN.Size = new System.Drawing.Size(221, 18);
-            this.txtISBN.TabIndex = 11;
-            this.txtISBN.Text = "0000000000000";
-            this.txtISBN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtISBN.ValidatingType = typeof(int);
-            this.txtISBN.Click += new System.EventHandler(this.TxtISBN_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(424, 333);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Género";
             // 
-            // txtAutor
+            // label3
             // 
-            this.txtAutor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtAutor.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAutor.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtAutor.Location = new System.Drawing.Point(498, 228);
-            this.txtAutor.Mask = "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL" +
-    "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL";
-            this.txtAutor.Name = "txtAutor";
-            this.txtAutor.PromptChar = ' ';
-            this.txtAutor.Size = new System.Drawing.Size(221, 18);
-            this.txtAutor.TabIndex = 13;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(419, 385);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 17);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Sección";
             // 
-            // txtTitulo
+            // button2
             // 
-            this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTitulo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitulo.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtTitulo.Location = new System.Drawing.Point(498, 280);
-            this.txtTitulo.MaxLength = 50;
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(221, 18);
-            this.txtTitulo.TabIndex = 14;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Arial", 10F);
+            this.button2.Location = new System.Drawing.Point(345, 453);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(78, 23);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // txtGenero
+            // button3
             // 
-            this.txtGenero.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGenero.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGenero.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtGenero.Location = new System.Drawing.Point(498, 332);
-            this.txtGenero.MaxLength = 15;
-            this.txtGenero.Name = "txtGenero";
-            this.txtGenero.Size = new System.Drawing.Size(221, 18);
-            this.txtGenero.TabIndex = 15;
-            // 
-            // txtSeccion
-            // 
-            this.txtSeccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSeccion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeccion.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtSeccion.Location = new System.Drawing.Point(498, 384);
-            this.txtSeccion.MaxLength = 20;
-            this.txtSeccion.Name = "txtSeccion";
-            this.txtSeccion.Size = new System.Drawing.Size(221, 18);
-            this.txtSeccion.TabIndex = 16;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 10F);
-            this.button1.Location = new System.Drawing.Point(663, 436);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Crear";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Arial", 10F);
+            this.button3.Location = new System.Drawing.Point(359, 436);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(78, 23);
+            this.button3.TabIndex = 21;
+            this.button3.Text = "Cancelar";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // Main
             // 
@@ -544,7 +625,6 @@
             this.Controls.Add(this.tabMain);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EmpresaX";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.tabMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -589,7 +669,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.MaskedTextBox txtApellidoEst;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtRepContraseñaUsuario;
         private System.Windows.Forms.TextBox txtContraseñaUsuario;
         private System.Windows.Forms.TextBox txtU_NombreUsuario;
@@ -603,5 +683,10 @@
         private System.Windows.Forms.MaskedTextBox txtAutor;
         private System.Windows.Forms.MaskedTextBox txtISBN;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

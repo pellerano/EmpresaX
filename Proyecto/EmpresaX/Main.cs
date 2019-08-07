@@ -408,7 +408,7 @@ namespace EmpresaX
             if ((txtMatricula.Text == "  -")
                || (txtMatricula.Text == "00-0000")
                || (txtNombreEst.Text == "")
-               || (txtApellidoEst.Text == "")
+               || (txtApellido.Text == "")
                || (txtEmail.Text == "")
                || (txtTelefono.Text == "(   )    -")
                || (txtTelefono.Text == "(000) 000-0000"))
@@ -421,17 +421,22 @@ namespace EmpresaX
                 try
                 {
                     string che = @"(select count(*) from Alumno_mstr where Alumno_Matricula ='" + txtMatricula.Text.ToString() + "')";
-                    SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellidoEst.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
+                    SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellido.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
                     mycon.Open();
                     SqlCommand cmda = new SqlCommand(che, mycon);
                     int count = (int)cmda.ExecuteScalar();
                     if (count > 0)
                     {
-                        MessageBox.Show("Este usuario ya existe.");
+                        MessageBox.Show("Este estudiante ya existe.");
                     }
                     else
                     {
                         cmd.ExecuteNonQuery();
+                        txtNombreEst.Clear();
+                        txtApellido.Clear();
+                        txtMatricula.Clear();
+                        txtEmail.Clear();
+                        txtTelefono.Clear();
                         MessageBox.Show("Estudiante Registrado con Exito!");
                     }
 
@@ -454,9 +459,9 @@ namespace EmpresaX
             txtNombreEst.Clear();
         }
 
-        private void TxtApellidoEst_Click_1(object sender, EventArgs e)
+        private void TxtApellido_Click_1(object sender, EventArgs e)
         {
-            txtApellidoEst.Clear();
+            txtApellido.Clear();
         }
 
         private void TxtEmail_Click_1(object sender, EventArgs e)
@@ -476,7 +481,7 @@ namespace EmpresaX
                 if ((txtMatricula.Text == "  -")
                || (txtMatricula.Text == "00-0000")
                || (txtNombreEst.Text == "")
-               || (txtApellidoEst.Text == "")
+               || (txtApellido.Text == "")
                || (txtEmail.Text == "")
                || (txtTelefono.Text == "(   )    -")
                || (txtTelefono.Text == "(000) 000-0000"))
@@ -489,17 +494,22 @@ namespace EmpresaX
                     try
                     {
                         string che = @"(select count(*) from Alumno_mstr where Alumno_Matricula ='" + txtMatricula.Text.ToString() + "')";
-                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellidoEst.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
+                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellido.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
                         mycon.Open();
                         SqlCommand cmda = new SqlCommand(che, mycon);
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este usuario ya existe.");
+                            MessageBox.Show("Este estudiante ya existe.");
                         }
                         else
                         {
                             cmd.ExecuteNonQuery();
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
                             MessageBox.Show("Estudiante Registrado con Exito!");
                         }
 
@@ -525,7 +535,7 @@ namespace EmpresaX
                 if ((txtMatricula.Text == "  -")
                || (txtMatricula.Text == "00-0000")
                || (txtNombreEst.Text == "")
-               || (txtApellidoEst.Text == "")
+               || (txtApellido.Text == "")
                || (txtEmail.Text == "")
                || (txtTelefono.Text == "(   )    -")
                || (txtTelefono.Text == "(000) 000-0000"))
@@ -538,17 +548,22 @@ namespace EmpresaX
                     try
                     {
                         string che = @"(select count(*) from Alumno_mstr where Alumno_Matricula ='" + txtMatricula.Text.ToString() + "')";
-                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellidoEst.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
+                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellido.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
                         mycon.Open();
                         SqlCommand cmda = new SqlCommand(che, mycon);
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este usuario ya existe.");
+                            MessageBox.Show("Este estudiante ya existe.");
                         }
                         else
                         {
                             cmd.ExecuteNonQuery();
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
                             MessageBox.Show("Estudiante Registrado con Exito!");
                         }
 
@@ -567,14 +582,14 @@ namespace EmpresaX
             }
         }
 
-        private void TxtApellidoEst_KeyDown_1(object sender, KeyEventArgs e)
+        private void TxtApellido_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 if ((txtMatricula.Text == "  -")
                || (txtMatricula.Text == "00-0000")
                || (txtNombreEst.Text == "")
-               || (txtApellidoEst.Text == "")
+               || (txtApellido.Text == "")
                || (txtEmail.Text == "")
                || (txtTelefono.Text == "(   )    -")
                || (txtTelefono.Text == "(000) 000-0000"))
@@ -587,17 +602,22 @@ namespace EmpresaX
                     try
                     {
                         string che = @"(select count(*) from Alumno_mstr where Alumno_Matricula ='" + txtMatricula.Text.ToString() + "')";
-                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellidoEst.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
+                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellido.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
                         mycon.Open();
                         SqlCommand cmda = new SqlCommand(che, mycon);
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este usuario ya existe.");
+                            MessageBox.Show("Este estudiante ya existe.");
                         }
                         else
                         {
                             cmd.ExecuteNonQuery();
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
                             MessageBox.Show("Estudiante Registrado con Exito!");
                         }
 
@@ -623,7 +643,7 @@ namespace EmpresaX
                 if ((txtMatricula.Text == "  -")
                || (txtMatricula.Text == "00-0000")
                || (txtNombreEst.Text == "")
-               || (txtApellidoEst.Text == "")
+               || (txtApellido.Text == "")
                || (txtEmail.Text == "")
                || (txtTelefono.Text == "(   )    -")
                || (txtTelefono.Text == "(000) 000-0000"))
@@ -636,17 +656,22 @@ namespace EmpresaX
                     try
                     {
                         string che = @"(select count(*) from Alumno_mstr where Alumno_Matricula ='" + txtMatricula.Text.ToString() + "')";
-                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellidoEst.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
+                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellido.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
                         mycon.Open();
                         SqlCommand cmda = new SqlCommand(che, mycon);
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este usuario ya existe.");
+                            MessageBox.Show("Este estudiante ya existe.");
                         }
                         else
                         {
                             cmd.ExecuteNonQuery();
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
                             MessageBox.Show("Estudiante Registrado con Exito!");
                         }
 
@@ -672,7 +697,7 @@ namespace EmpresaX
                 if ((txtMatricula.Text == "  -")
                || (txtMatricula.Text == "00-0000")
                || (txtNombreEst.Text == "")
-               || (txtApellidoEst.Text == "")
+               || (txtApellido.Text == "")
                || (txtEmail.Text == "")
                || (txtTelefono.Text == "(   )    -")
                || (txtTelefono.Text == "(000) 000-0000"))
@@ -685,17 +710,22 @@ namespace EmpresaX
                     try
                     {
                         string che = @"(select count(*) from Alumno_mstr where Alumno_Matricula ='" + txtMatricula.Text.ToString() + "')";
-                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellidoEst.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
+                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellido.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
                         mycon.Open();
                         SqlCommand cmda = new SqlCommand(che, mycon);
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este usuario ya existe.");
+                            MessageBox.Show("Este estudiante ya existe.");
                         }
                         else
                         {
                             cmd.ExecuteNonQuery();
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
                             MessageBox.Show("Estudiante Registrado con Exito!");
                         }
 
@@ -745,11 +775,17 @@ namespace EmpresaX
                     int count = (int)cmda.ExecuteScalar();
                     if (count > 0)
                     {
-                        MessageBox.Show("Este usuario ya existe.");
+                        MessageBox.Show("Este estudiante  ya existe.");
                     }
                     else
                     {
                         cmd.ExecuteNonQuery();
+                        txtNombreUsuario.Clear();
+                        txtApellidoUsuario.Clear();
+                        txtEmailUsuario.Clear();
+                        txtU_NombreUsuario.Clear();
+                        txtContraseñaUsuario.Clear();
+                        txtRepContraseñaUsuario.Clear();
                         MessageBox.Show("Usuario Registrado con Exito!");
                     }
 
@@ -924,9 +960,377 @@ namespace EmpresaX
         {
             txtISBN.Clear();
         }
+
+        private void TxtApellido_Click(object sender, EventArgs e)
+        {
+            txtApellido.Clear();
+        }
+
+        private void TxtAutor_Click(object sender, EventArgs e)
+        {
+            txtAutor.Clear();
+        }
+
+        private void TxtTitulo_Click(object sender, EventArgs e)
+        {
+            txtTitulo.Clear();
+        }
+
+        private void TxtGenero_Click(object sender, EventArgs e)
+        {
+            txtGenero.Clear();
+        }
+
+        private void TxtSeccion_Click(object sender, EventArgs e)
+        {
+            txtSeccion.Clear();
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            Main objMain = new Main();
+            this.Hide();
+            objMain.Show();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Main objMain = new Main();
+            this.Hide();
+            objMain.Show();
+        }
+
+        private void TxtNombreUsuario_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtContraseñaUsuario.Text != txtRepContraseñaUsuario.Text)
+                || (txtU_NombreUsuario.Text == "")
+                || (txtNombreUsuario.Text == "")
+                || (txtApellidoUsuario.Text == "")
+                || (txtEmailUsuario.Text == "")
+                || (txtContraseñaUsuario.Text == ""))
+
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {
+                        string che = @"(select count(*) from Usuario_Mstr where Usuario_NombreUsuario ='" + txtU_NombreUsuario.Text.ToString() + "')";
+                        SqlCommand cmd = new SqlCommand("Insert into Usuario_Mstr(Usuario_Nombre, Usuario_Apellido, Usuario_Email, Usuario_Contraseña, Usuario_NombreUsuario)values('" + txtNombreUsuario.Text.ToString() + "','" + txtApellidoUsuario.Text.ToString() + "','" + txtEmailUsuario.Text.ToString() + "','" + txtContraseñaUsuario.Text.ToString() + "','" + txtU_NombreUsuario.Text.ToString() + "')", mycon);
+                        mycon.Open();
+                        SqlCommand cmda = new SqlCommand(che, mycon);
+                        int count = (int)cmda.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Este estudiante  ya existe.");
+                        }
+                        else
+                        {
+                            cmd.ExecuteNonQuery();
+                            txtNombreUsuario.Clear();
+                            txtApellidoUsuario.Clear();
+                            txtEmailUsuario.Clear();
+                            txtU_NombreUsuario.Clear();
+                            txtContraseñaUsuario.Clear();
+                            txtRepContraseñaUsuario.Clear();
+                            MessageBox.Show("Usuario Registrado con Exito!");
+                        }
+
+                        mycon.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                            mycon.Close();
+                    }
+                }
+            }
+        }
+
+        private void TxtApellidoUsuario_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtContraseñaUsuario.Text != txtRepContraseñaUsuario.Text)
+                || (txtU_NombreUsuario.Text == "")
+                || (txtNombreUsuario.Text == "")
+                || (txtApellidoUsuario.Text == "")
+                || (txtEmailUsuario.Text == "")
+                || (txtContraseñaUsuario.Text == ""))
+
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {
+                        string che = @"(select count(*) from Usuario_Mstr where Usuario_NombreUsuario ='" + txtU_NombreUsuario.Text.ToString() + "')";
+                        SqlCommand cmd = new SqlCommand("Insert into Usuario_Mstr(Usuario_Nombre, Usuario_Apellido, Usuario_Email, Usuario_Contraseña, Usuario_NombreUsuario)values('" + txtNombreUsuario.Text.ToString() + "','" + txtApellidoUsuario.Text.ToString() + "','" + txtEmailUsuario.Text.ToString() + "','" + txtContraseñaUsuario.Text.ToString() + "','" + txtU_NombreUsuario.Text.ToString() + "')", mycon);
+                        mycon.Open();
+                        SqlCommand cmda = new SqlCommand(che, mycon);
+                        int count = (int)cmda.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Este estudiante  ya existe.");
+                        }
+                        else
+                        {
+                            cmd.ExecuteNonQuery();
+                            txtNombreUsuario.Clear();
+                            txtApellidoUsuario.Clear();
+                            txtEmailUsuario.Clear();
+                            txtU_NombreUsuario.Clear();
+                            txtContraseñaUsuario.Clear();
+                            txtRepContraseñaUsuario.Clear();
+                            MessageBox.Show("Usuario Registrado con Exito!");
+                        }
+
+                        mycon.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                            mycon.Close();
+                    }
+                }
+            }
+        }
+
+        private void TxtEmailUsuario_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtContraseñaUsuario.Text != txtRepContraseñaUsuario.Text)
+                || (txtU_NombreUsuario.Text == "")
+                || (txtNombreUsuario.Text == "")
+                || (txtApellidoUsuario.Text == "")
+                || (txtEmailUsuario.Text == "")
+                || (txtContraseñaUsuario.Text == ""))
+
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {
+                        string che = @"(select count(*) from Usuario_Mstr where Usuario_NombreUsuario ='" + txtU_NombreUsuario.Text.ToString() + "')";
+                        SqlCommand cmd = new SqlCommand("Insert into Usuario_Mstr(Usuario_Nombre, Usuario_Apellido, Usuario_Email, Usuario_Contraseña, Usuario_NombreUsuario)values('" + txtNombreUsuario.Text.ToString() + "','" + txtApellidoUsuario.Text.ToString() + "','" + txtEmailUsuario.Text.ToString() + "','" + txtContraseñaUsuario.Text.ToString() + "','" + txtU_NombreUsuario.Text.ToString() + "')", mycon);
+                        mycon.Open();
+                        SqlCommand cmda = new SqlCommand(che, mycon);
+                        int count = (int)cmda.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Este estudiante  ya existe.");
+                        }
+                        else
+                        {
+                            cmd.ExecuteNonQuery();
+                            txtNombreUsuario.Clear();
+                            txtApellidoUsuario.Clear();
+                            txtEmailUsuario.Clear();
+                            txtU_NombreUsuario.Clear();
+                            txtContraseñaUsuario.Clear();
+                            txtRepContraseñaUsuario.Clear();
+                            MessageBox.Show("Usuario Registrado con Exito!");
+                        }
+
+                        mycon.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                            mycon.Close();
+                    }
+                }
+            }
+        }
+
+        private void TxtU_NombreUsuario_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtContraseñaUsuario.Text != txtRepContraseñaUsuario.Text)
+                || (txtU_NombreUsuario.Text == "")
+                || (txtNombreUsuario.Text == "")
+                || (txtApellidoUsuario.Text == "")
+                || (txtEmailUsuario.Text == "")
+                || (txtContraseñaUsuario.Text == ""))
+
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {
+                        string che = @"(select count(*) from Usuario_Mstr where Usuario_NombreUsuario ='" + txtU_NombreUsuario.Text.ToString() + "')";
+                        SqlCommand cmd = new SqlCommand("Insert into Usuario_Mstr(Usuario_Nombre, Usuario_Apellido, Usuario_Email, Usuario_Contraseña, Usuario_NombreUsuario)values('" + txtNombreUsuario.Text.ToString() + "','" + txtApellidoUsuario.Text.ToString() + "','" + txtEmailUsuario.Text.ToString() + "','" + txtContraseñaUsuario.Text.ToString() + "','" + txtU_NombreUsuario.Text.ToString() + "')", mycon);
+                        mycon.Open();
+                        SqlCommand cmda = new SqlCommand(che, mycon);
+                        int count = (int)cmda.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Este estudiante  ya existe.");
+                        }
+                        else
+                        {
+                            cmd.ExecuteNonQuery();
+                            txtNombreUsuario.Clear();
+                            txtApellidoUsuario.Clear();
+                            txtEmailUsuario.Clear();
+                            txtU_NombreUsuario.Clear();
+                            txtContraseñaUsuario.Clear();
+                            txtRepContraseñaUsuario.Clear();
+                            MessageBox.Show("Usuario Registrado con Exito!");
+                        }
+
+                        mycon.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                            mycon.Close();
+                    }
+                }
+            }
+        }
+
+        private void TxtContraseñaUsuario_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtContraseñaUsuario.Text != txtRepContraseñaUsuario.Text)
+                || (txtU_NombreUsuario.Text == "")
+                || (txtNombreUsuario.Text == "")
+                || (txtApellidoUsuario.Text == "")
+                || (txtEmailUsuario.Text == "")
+                || (txtContraseñaUsuario.Text == ""))
+
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {
+                        string che = @"(select count(*) from Usuario_Mstr where Usuario_NombreUsuario ='" + txtU_NombreUsuario.Text.ToString() + "')";
+                        SqlCommand cmd = new SqlCommand("Insert into Usuario_Mstr(Usuario_Nombre, Usuario_Apellido, Usuario_Email, Usuario_Contraseña, Usuario_NombreUsuario)values('" + txtNombreUsuario.Text.ToString() + "','" + txtApellidoUsuario.Text.ToString() + "','" + txtEmailUsuario.Text.ToString() + "','" + txtContraseñaUsuario.Text.ToString() + "','" + txtU_NombreUsuario.Text.ToString() + "')", mycon);
+                        mycon.Open();
+                        SqlCommand cmda = new SqlCommand(che, mycon);
+                        int count = (int)cmda.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Este estudiante  ya existe.");
+                        }
+                        else
+                        {
+                            cmd.ExecuteNonQuery();
+                            txtNombreUsuario.Clear();
+                            txtApellidoUsuario.Clear();
+                            txtEmailUsuario.Clear();
+                            txtU_NombreUsuario.Clear();
+                            txtContraseñaUsuario.Clear();
+                            txtRepContraseñaUsuario.Clear();
+                            MessageBox.Show("Usuario Registrado con Exito!");
+                        }
+
+                        mycon.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                            mycon.Close();
+                    }
+                }
+            }
+        }
+
+        private void TxtRepContraseñaUsuario_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtContraseñaUsuario.Text != txtRepContraseñaUsuario.Text)
+                || (txtU_NombreUsuario.Text == "")
+                || (txtNombreUsuario.Text == "")
+                || (txtApellidoUsuario.Text == "")
+                || (txtEmailUsuario.Text == "")
+                || (txtContraseñaUsuario.Text == ""))
+
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {
+                        string che = @"(select count(*) from Usuario_Mstr where Usuario_NombreUsuario ='" + txtU_NombreUsuario.Text.ToString() + "')";
+                        SqlCommand cmd = new SqlCommand("Insert into Usuario_Mstr(Usuario_Nombre, Usuario_Apellido, Usuario_Email, Usuario_Contraseña, Usuario_NombreUsuario)values('" + txtNombreUsuario.Text.ToString() + "','" + txtApellidoUsuario.Text.ToString() + "','" + txtEmailUsuario.Text.ToString() + "','" + txtContraseñaUsuario.Text.ToString() + "','" + txtU_NombreUsuario.Text.ToString() + "')", mycon);
+                        mycon.Open();
+                        SqlCommand cmda = new SqlCommand(che, mycon);
+                        int count = (int)cmda.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Este estudiante  ya existe.");
+                        }
+                        else
+                        {
+                            cmd.ExecuteNonQuery();
+                            txtNombreUsuario.Clear();
+                            txtApellidoUsuario.Clear();
+                            txtEmailUsuario.Clear();
+                            txtU_NombreUsuario.Clear();
+                            txtContraseñaUsuario.Clear();
+                            txtRepContraseñaUsuario.Clear();
+                            MessageBox.Show("Usuario Registrado con Exito!");
+                        }
+
+                        mycon.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                            mycon.Close();
+                    }
+                }
+            }
+        }
     }
 }
-
 
     
 
