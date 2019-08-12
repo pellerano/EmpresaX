@@ -427,6 +427,11 @@ namespace EmpresaX
                     int count = (int)cmda.ExecuteScalar();
                     if (count > 0)
                     {
+                        txtNombreEst.Clear();
+                        txtApellido.Clear();
+                        txtMatricula.Clear();
+                        txtEmail.Clear();
+                        txtTelefono.Clear();
                         MessageBox.Show("Este estudiante ya existe.");
                     }
                     else
@@ -500,6 +505,11 @@ namespace EmpresaX
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
                             MessageBox.Show("Este estudiante ya existe.");
                         }
                         else
@@ -554,6 +564,11 @@ namespace EmpresaX
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
                             MessageBox.Show("Este estudiante ya existe.");
                         }
                         else
@@ -608,6 +623,11 @@ namespace EmpresaX
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
                             MessageBox.Show("Este estudiante ya existe.");
                         }
                         else
@@ -662,6 +682,11 @@ namespace EmpresaX
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
                             MessageBox.Show("Este estudiante ya existe.");
                         }
                         else
@@ -702,13 +727,18 @@ namespace EmpresaX
                || (txtTelefono.Text == "(   )    -")
                || (txtTelefono.Text == "(000) 000-0000"))
                 {
+                    txtNombreEst.Clear();
+                    txtApellido.Clear();
+                    txtMatricula.Clear();
+                    txtEmail.Clear();
+                    txtTelefono.Clear();
                     MessageBox.Show("Por favor llenar todos los campos.");
                 }
 
                 else
                 {
                     try
-                    {
+                    {   //Bookmark
                         string che = @"(select count(*) from Alumno_mstr where Alumno_Matricula ='" + txtMatricula.Text.ToString() + "')";
                         SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellido.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
                         mycon.Open();
@@ -775,7 +805,12 @@ namespace EmpresaX
                     int count = (int)cmda.ExecuteScalar();
                     if (count > 0)
                     {
-                        MessageBox.Show("Este estudiante  ya existe.");
+                        txtNombreEst.Clear();
+                        txtApellido.Clear();
+                        txtMatricula.Clear();
+                        txtEmail.Clear();
+                        txtTelefono.Clear();
+                        MessageBox.Show("Este usuario ya existe.");
                     }
                     else
                     {
@@ -851,7 +886,7 @@ namespace EmpresaX
             else
             {
                 try
-                {
+                {   //2B
                     //Contadores
                     string a = @"(select count(*) from Libro_Mstr where Libro_Titulo ='" + txtTitulo.Text.ToString() + "')";
                     string b = @"(select count(*) from Autor_Mstr where Autor_Nombre ='" + txtAutor.Text.ToString() + "')";
@@ -866,13 +901,14 @@ namespace EmpresaX
                     SqlCommand bmd = new SqlCommand("Insert into Genero_Mstr(Genero_Nombre)values('" + txtGenero.Text.ToString() + "')", mycon);
 
                     //Insertar Info Libro
-                    SqlCommand cmd = new SqlCommand("Insert into Libro_Mstr(Libro_ISBN, Libro_Titulo, Libro_Seccion)values('" + txtISBN.Text.ToString() + "','" + txtTitulo.Text.ToString() + "','" + txtSeccion.Text.ToString() + "')", mycon);
+                    SqlCommand cmd = new SqlCommand("Insert into Libro_Mstr(Libro_ISBN, Libro_Titulo, Libro_Seccion, Autor_Nombre, Genero_Nombre)values('" + txtISBN.Text.ToString() + "','" + txtTitulo.Text.ToString() + "','" + txtSeccion.Text.ToString() + "','" + txtAutor.Text.ToString() + "','" + txtGenero.Text.ToString() + "')", mycon);
 
                     //Update Autor_ID
                     SqlCommand dmd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Autor_ID = Autor_Mstr.Autor_ID FROM Autor_Mstr WHERE Libro_Mstr.Libro_ISBN = '" + txtISBN.Text.ToString() + "' AND Autor_Mstr.Autor_Nombre = '" + txtAutor.Text.ToString() + "')", mycon);
 
                     //Update Genero_ID
-                    SqlCommand emd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID FROM Genero_Mstr WHERE Genero_Nombre = '" + txtGenero.Text.ToString() + "' AND Libro_Mstr.Libro_ISBN = '" + txtISBN.Text.ToString() + "')", mycon);
+                    SqlCommand emd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID FROM Genero_Mstr WHERE Genero_Nombre = @gn AND  Libro_Mstr.Libro_ISBN = @ISBN", mycon);
+
 
                     mycon.Open();
 
@@ -952,6 +988,11 @@ namespace EmpresaX
                         mycon.Close();
                     }
                 }
+                txtISBN.Clear();
+                txtAutor.Clear();
+                txtTitulo.Clear();
+                txtGenero.Clear();
+                txtSeccion.Clear();
             }
         }
 
@@ -1026,7 +1067,7 @@ namespace EmpresaX
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este estudiante  ya existe.");
+                            MessageBox.Show("Este usuario ya existe.");
                         }
                         else
                         {
@@ -1081,7 +1122,7 @@ namespace EmpresaX
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este estudiante  ya existe.");
+                            MessageBox.Show("Este usuario ya existe.");
                         }
                         else
                         {
@@ -1136,7 +1177,7 @@ namespace EmpresaX
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este estudiante  ya existe.");
+                            MessageBox.Show("Este usuario ya existe.");
                         }
                         else
                         {
@@ -1191,7 +1232,7 @@ namespace EmpresaX
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este estudiante  ya existe.");
+                            MessageBox.Show("Este usuario ya existe.");
                         }
                         else
                         {
@@ -1246,7 +1287,7 @@ namespace EmpresaX
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este estudiante  ya existe.");
+                            MessageBox.Show("Este usuario ya existe.");
                         }
                         else
                         {
@@ -1301,7 +1342,7 @@ namespace EmpresaX
                         int count = (int)cmda.ExecuteScalar();
                         if (count > 0)
                         {
-                            MessageBox.Show("Este estudiante  ya existe.");
+                            MessageBox.Show("Este usuario  ya existe.");
                         }
                         else
                         {
@@ -1326,6 +1367,1077 @@ namespace EmpresaX
                         if (mycon.State == ConnectionState.Open)
                             mycon.Close();
                     }
+                }
+            }
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnListaLibros_Click(object sender, EventArgs e)
+        {
+            Lista_de_Libros objListaLibros = new Lista_de_Libros();
+            this.Hide();
+            objListaLibros.Show();
+        }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            Lista_de_Autores objListaAutores = new Lista_de_Autores();
+            this.Hide();
+            objListaAutores.Show();
+        }
+
+        private void Button4_Click_1(object sender, EventArgs e)
+        {
+            Lista_de_Generos objListaGeneros = new Lista_de_Generos();
+            this.Hide();
+            objListaGeneros.Show();
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            Lista_de_Usuarios objListaUsuarios = new Lista_de_Usuarios();
+            this.Hide();
+            objListaUsuarios.Show();
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            Lista_de_Estudiantes objListaEstudiantes = new Lista_de_Estudiantes();
+            this.Hide();
+            objListaEstudiantes.Show();
+        }
+
+        private void MaskedTextBox1_Click(object sender, EventArgs e)
+        {
+            maskedTextBox1.Clear();
+        }
+
+        private void Button10_Click(object sender, EventArgs e)
+        {
+            mycon.Open();
+
+            //Contadores
+            string s2 = @"(select count(*) from Alumno_Mstr where Alumno_Matricula = '" + maskedTextBox1.Text.ToString() + "')";
+            string s3 = @"(select count(*) from Libro_Mstr where Libro_Titulo = '" + textBox1.Text.ToString() + "')";
+            string s1 = @"(select count(*) from Orden_Mstr where Alumno_Matricula ='" + maskedTextBox1.Text.ToString() + "' AND Ord_Estado = 'Alquilado')";
+            SqlCommand edm = new SqlCommand(s1, mycon);
+            SqlCommand adm = new SqlCommand(s2, mycon);
+            SqlCommand bdm = new SqlCommand(s3, mycon);
+            int cont1 = (int)edm.ExecuteScalar();
+            int cont2 = (int)adm.ExecuteScalar();
+            int cont3 = (int)bdm.ExecuteScalar();
+
+            //Queries
+            string foxtrot = @"Insert into Orden_Mstr(Alumno_Matricula, Libro_Titulo, Fecha_Alquiler, Fecha_Devolucion, Ord_Estado)VALUES(@matriculaest, @titulo, @FechaA, @FechaB, 'Alquilado')";
+
+            //Insertar Matricula
+            SqlCommand query1 = new SqlCommand(foxtrot, mycon);
+            query1.Parameters.Add("@FechaA", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
+            query1.Parameters.Add("@FechaB", SqlDbType.Date).Value = dateTimePicker2.Value.Date;
+            query1.Parameters.Add("@matriculaest", SqlDbType.VarChar).Value = maskedTextBox1.Text;
+            query1.Parameters.Add("@titulo", SqlDbType.VarChar).Value = textBox1.Text;
+
+            if ((cont2 == 0))
+            {
+                MessageBox.Show("Este estudiante no existe.");
+                maskedTextBox1.Clear();
+                textBox1.Clear();
+
+            }
+
+            else
+            {
+                if ((cont3 == 0))
+                {
+                    MessageBox.Show("Este libro no existe.");
+                    maskedTextBox1.Clear();
+                    textBox1.Clear();
+                }
+
+                else
+                {
+                    if ((cont1 == 0))
+                    {
+                        //Proceso
+                        query1.ExecuteNonQuery();
+                        MessageBox.Show("Libro Alquilado con exito!");
+                        maskedTextBox1.Clear();
+                        textBox1.Clear();
+                    }
+
+                    else
+                    {
+
+                        MessageBox.Show("Este estudiante ya tiene un libro alquilado.");
+                        maskedTextBox1.Clear();
+                        textBox1.Clear();
+                    }
+                }
+            }
+
+            mycon.Close();
+        }
+
+        private void Button11_Click(object sender, EventArgs e)
+        {
+            Main objMain = new Main();
+            this.Hide();
+            objMain.Show();
+        }
+
+        private void Button12_Click(object sender, EventArgs e)
+        {
+            Main objMain = new Main();
+            this.Hide();
+            objMain.Show();
+        }
+
+        private void Button13_Click(object sender, EventArgs e)
+        {
+            mycon.Open();
+
+            string s4 = @"(select count(*) from Orden_Mstr where Alumno_Matricula = '" + maskedTextBox2.Text.ToString() + "')";
+            string s5 = @"(select count(*) from Orden_Mstr where Ord_Estado = 'Alquilado')";
+            SqlCommand zdm = new SqlCommand(s4, mycon);
+            SqlCommand ydm = new SqlCommand(s5, mycon);
+            int cont4 = (int)zdm.ExecuteScalar();
+            int cont5 = (int)ydm.ExecuteScalar();
+
+
+            if ((cont4 > 0)
+            && cont5 > 0)
+            {
+                string s2 = @"UPDATE Orden_Mstr SET Ord_Estado = 'Devuelto' WHERE Alumno_Matricula = @matricula AND Ord_Estado = 'Alquilado';";
+                SqlCommand cdmz = new SqlCommand(s2, mycon);
+                cdmz.Parameters.Add("@Matricula", SqlDbType.VarChar).Value = maskedTextBox2.Text;
+                cdmz.ExecuteNonQuery();
+                MessageBox.Show("Libro Devuelto con exito!");
+            }
+
+            else
+            {
+                MessageBox.Show("Este estudiante no tiene un libro alquilado.");
+            }
+
+            mycon.Close();
+        }
+
+        private void MaskedTextBox2_Click(object sender, EventArgs e)
+        {
+            maskedTextBox2.Clear();
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            Lista_de_Ordenes objListaOrdenes = new Lista_de_Ordenes();
+            this.Hide();
+            objListaOrdenes.Show();
+        }
+
+        private void TxtApellido_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtMatricula.Text == "  -")
+               || (txtMatricula.Text == "00-0000")
+               || (txtNombreEst.Text == "")
+               || (txtApellido.Text == "")
+               || (txtEmail.Text == "")
+               || (txtTelefono.Text == "(   )    -")
+               || (txtTelefono.Text == "(000) 000-0000"))
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {
+                        string che = @"(select count(*) from Alumno_mstr where Alumno_Matricula ='" + txtMatricula.Text.ToString() + "')";
+                        SqlCommand cmd = new SqlCommand("Insert into Alumno_Mstr(Alumno_Matricula, Alumno_Nombre, Alumno_Apellido, Alumno_Email, Alumno_Telefono)values('" + txtMatricula.Text.ToString() + "','" + txtNombreEst.Text.ToString() + "','" + txtApellido.Text.ToString() + "','" + txtEmail.Text.ToString() + "','" + txtTelefono.Text.ToString() + "')", mycon);
+                        mycon.Open();
+                        SqlCommand cmda = new SqlCommand(che, mycon);
+                        int count = (int)cmda.ExecuteScalar();
+                        if (count > 0)
+                        {
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
+                            MessageBox.Show("Este estudiante ya existe.");
+                        }
+                        else
+                        {
+                            cmd.ExecuteNonQuery();
+                            txtNombreEst.Clear();
+                            txtApellido.Clear();
+                            txtMatricula.Clear();
+                            txtEmail.Clear();
+                            txtTelefono.Clear();
+                            MessageBox.Show("Estudiante Registrado con Exito!");
+                        }
+
+                        mycon.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                            mycon.Close();
+                    }
+                }
+            }
+        }
+
+        private void TxtISBN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtISBN.Text == "")
+               || (txtAutor.Text == "")
+               || (txtTitulo.Text == "")
+               || (txtGenero.Text == "")
+               || (txtSeccion.Text == "")
+               || (txtISBN.Text == "000-0-00-000000-0")
+               || (txtISBN.Text == "   - -  -      -"))
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {   //2B
+                        //Contadores
+                        string a = @"(select count(*) from Libro_Mstr where Libro_Titulo ='" + txtTitulo.Text.ToString() + "')";
+                        string b = @"(select count(*) from Autor_Mstr where Autor_Nombre ='" + txtAutor.Text.ToString() + "')";
+                        string c = @"(select count(*) from Genero_Mstr where Genero_Nombre ='" + txtGenero.Text.ToString() + "')";
+
+                        //Commands SQL
+
+                        //Insertar Autor
+                        SqlCommand amd = new SqlCommand("Insert into Autor_Mstr(Autor_Nombre)values('" + txtAutor.Text.ToString() + "')", mycon);
+
+                        //Insertar Genero
+                        SqlCommand bmd = new SqlCommand("Insert into Genero_Mstr(Genero_Nombre)values('" + txtGenero.Text.ToString() + "')", mycon);
+
+                        //Insertar Info Libro
+                        SqlCommand cmd = new SqlCommand("Insert into Libro_Mstr(Libro_ISBN, Libro_Titulo, Libro_Seccion, Autor_Nombre, Genero_Nombre)values('" + txtISBN.Text.ToString() + "','" + txtTitulo.Text.ToString() + "','" + txtSeccion.Text.ToString() + "','" + txtAutor.Text.ToString() + "','" + txtGenero.Text.ToString() + "')", mycon);
+
+                        //Update Autor_ID
+                        SqlCommand dmd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Autor_ID = Autor_Mstr.Autor_ID FROM Autor_Mstr WHERE Libro_Mstr.Libro_ISBN = '" + txtISBN.Text.ToString() + "' AND Autor_Mstr.Autor_Nombre = '" + txtAutor.Text.ToString() + "')", mycon);
+
+                        //Update Genero_ID
+                        SqlCommand emd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID FROM Genero_Mstr WHERE Genero_Nombre = @gn AND  Libro_Mstr.Libro_ISBN = @ISBN", mycon);
+
+
+                        mycon.Open();
+
+                        //Contadores en SQL
+                        SqlCommand cmda = new SqlCommand(a, mycon);
+                        SqlCommand cmdb = new SqlCommand(b, mycon);
+                        SqlCommand cmdc = new SqlCommand(c, mycon);
+                        int counta = (int)cmda.ExecuteScalar();
+                        int countb = (int)cmdb.ExecuteScalar();
+                        int countc = (int)cmdc.ExecuteScalar();
+
+                        //Agregar Libro Nuevo
+                        if ((counta == 0)
+                        && (countb == 0)
+                        && (countc == 0))
+                        {
+                            amd.ExecuteNonQuery();
+                            bmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Genero ya existente
+                        else if ((counta == 0)
+                        && (countb == 0)
+                        && (countc > 0))
+                        {
+                            amd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Autor Existente
+                        else if ((counta == 0)
+                        && (countb > 0)
+                        && (countc == 0))
+                        {
+                            bmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Autor y Genero Existente
+                        else if ((counta == 0)
+                        && (countb > 0)
+                        && (countc > 0))
+                        {
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Este libro ya está registrado.");
+                        }
+
+                        mycon.Close();
+                    }
+
+                    catch
+                    {
+                        MessageBox.Show("Libro Registrado con Exito!");
+                    }
+
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                        {
+                            mycon.Close();
+                        }
+                    }
+                    txtISBN.Clear();
+                    txtAutor.Clear();
+                    txtTitulo.Clear();
+                    txtGenero.Clear();
+                    txtSeccion.Clear();
+                }
+            }
+        }
+
+        private void TxtAutor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtISBN.Text == "")
+               || (txtAutor.Text == "")
+               || (txtTitulo.Text == "")
+               || (txtGenero.Text == "")
+               || (txtSeccion.Text == "")
+               || (txtISBN.Text == "000-0-00-000000-0")
+               || (txtISBN.Text == "   - -  -      -"))
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {   //2B
+                        //Contadores
+                        string a = @"(select count(*) from Libro_Mstr where Libro_Titulo ='" + txtTitulo.Text.ToString() + "')";
+                        string b = @"(select count(*) from Autor_Mstr where Autor_Nombre ='" + txtAutor.Text.ToString() + "')";
+                        string c = @"(select count(*) from Genero_Mstr where Genero_Nombre ='" + txtGenero.Text.ToString() + "')";
+
+                        //Commands SQL
+
+                        //Insertar Autor
+                        SqlCommand amd = new SqlCommand("Insert into Autor_Mstr(Autor_Nombre)values('" + txtAutor.Text.ToString() + "')", mycon);
+
+                        //Insertar Genero
+                        SqlCommand bmd = new SqlCommand("Insert into Genero_Mstr(Genero_Nombre)values('" + txtGenero.Text.ToString() + "')", mycon);
+
+                        //Insertar Info Libro
+                        SqlCommand cmd = new SqlCommand("Insert into Libro_Mstr(Libro_ISBN, Libro_Titulo, Libro_Seccion, Autor_Nombre, Genero_Nombre)values('" + txtISBN.Text.ToString() + "','" + txtTitulo.Text.ToString() + "','" + txtSeccion.Text.ToString() + "','" + txtAutor.Text.ToString() + "','" + txtGenero.Text.ToString() + "')", mycon);
+
+                        //Update Autor_ID
+                        SqlCommand dmd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Autor_ID = Autor_Mstr.Autor_ID FROM Autor_Mstr WHERE Libro_Mstr.Libro_ISBN = '" + txtISBN.Text.ToString() + "' AND Autor_Mstr.Autor_Nombre = '" + txtAutor.Text.ToString() + "')", mycon);
+
+                        //Update Genero_ID
+                        SqlCommand emd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID FROM Genero_Mstr WHERE Genero_Nombre = @gn AND  Libro_Mstr.Libro_ISBN = @ISBN", mycon);
+
+
+                        mycon.Open();
+
+                        //Contadores en SQL
+                        SqlCommand cmda = new SqlCommand(a, mycon);
+                        SqlCommand cmdb = new SqlCommand(b, mycon);
+                        SqlCommand cmdc = new SqlCommand(c, mycon);
+                        int counta = (int)cmda.ExecuteScalar();
+                        int countb = (int)cmdb.ExecuteScalar();
+                        int countc = (int)cmdc.ExecuteScalar();
+
+                        //Agregar Libro Nuevo
+                        if ((counta == 0)
+                        && (countb == 0)
+                        && (countc == 0))
+                        {
+                            amd.ExecuteNonQuery();
+                            bmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Genero ya existente
+                        else if ((counta == 0)
+                        && (countb == 0)
+                        && (countc > 0))
+                        {
+                            amd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Autor Existente
+                        else if ((counta == 0)
+                        && (countb > 0)
+                        && (countc == 0))
+                        {
+                            bmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Autor y Genero Existente
+                        else if ((counta == 0)
+                        && (countb > 0)
+                        && (countc > 0))
+                        {
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Este libro ya está registrado.");
+                        }
+
+                        mycon.Close();
+                    }
+
+                    catch
+                    {
+                        MessageBox.Show("Libro Registrado con Exito!");
+                    }
+
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                        {
+                            mycon.Close();
+                        }
+                    }
+                    txtISBN.Clear();
+                    txtAutor.Clear();
+                    txtTitulo.Clear();
+                    txtGenero.Clear();
+                    txtSeccion.Clear();
+                }
+            }
+        }
+
+        private void TxtTitulo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtISBN.Text == "")
+               || (txtAutor.Text == "")
+               || (txtTitulo.Text == "")
+               || (txtGenero.Text == "")
+               || (txtSeccion.Text == "")
+               || (txtISBN.Text == "000-0-00-000000-0")
+               || (txtISBN.Text == "   - -  -      -"))
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {   //2B
+                        //Contadores
+                        string a = @"(select count(*) from Libro_Mstr where Libro_Titulo ='" + txtTitulo.Text.ToString() + "')";
+                        string b = @"(select count(*) from Autor_Mstr where Autor_Nombre ='" + txtAutor.Text.ToString() + "')";
+                        string c = @"(select count(*) from Genero_Mstr where Genero_Nombre ='" + txtGenero.Text.ToString() + "')";
+
+                        //Commands SQL
+
+                        //Insertar Autor
+                        SqlCommand amd = new SqlCommand("Insert into Autor_Mstr(Autor_Nombre)values('" + txtAutor.Text.ToString() + "')", mycon);
+
+                        //Insertar Genero
+                        SqlCommand bmd = new SqlCommand("Insert into Genero_Mstr(Genero_Nombre)values('" + txtGenero.Text.ToString() + "')", mycon);
+
+                        //Insertar Info Libro
+                        SqlCommand cmd = new SqlCommand("Insert into Libro_Mstr(Libro_ISBN, Libro_Titulo, Libro_Seccion, Autor_Nombre, Genero_Nombre)values('" + txtISBN.Text.ToString() + "','" + txtTitulo.Text.ToString() + "','" + txtSeccion.Text.ToString() + "','" + txtAutor.Text.ToString() + "','" + txtGenero.Text.ToString() + "')", mycon);
+
+                        //Update Autor_ID
+                        SqlCommand dmd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Autor_ID = Autor_Mstr.Autor_ID FROM Autor_Mstr WHERE Libro_Mstr.Libro_ISBN = '" + txtISBN.Text.ToString() + "' AND Autor_Mstr.Autor_Nombre = '" + txtAutor.Text.ToString() + "')", mycon);
+
+                        //Update Genero_ID
+                        SqlCommand emd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID FROM Genero_Mstr WHERE Genero_Nombre = @gn AND  Libro_Mstr.Libro_ISBN = @ISBN", mycon);
+
+
+                        mycon.Open();
+
+                        //Contadores en SQL
+                        SqlCommand cmda = new SqlCommand(a, mycon);
+                        SqlCommand cmdb = new SqlCommand(b, mycon);
+                        SqlCommand cmdc = new SqlCommand(c, mycon);
+                        int counta = (int)cmda.ExecuteScalar();
+                        int countb = (int)cmdb.ExecuteScalar();
+                        int countc = (int)cmdc.ExecuteScalar();
+
+                        //Agregar Libro Nuevo
+                        if ((counta == 0)
+                        && (countb == 0)
+                        && (countc == 0))
+                        {
+                            amd.ExecuteNonQuery();
+                            bmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Genero ya existente
+                        else if ((counta == 0)
+                        && (countb == 0)
+                        && (countc > 0))
+                        {
+                            amd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Autor Existente
+                        else if ((counta == 0)
+                        && (countb > 0)
+                        && (countc == 0))
+                        {
+                            bmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Autor y Genero Existente
+                        else if ((counta == 0)
+                        && (countb > 0)
+                        && (countc > 0))
+                        {
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Este libro ya está registrado.");
+                        }
+
+                        mycon.Close();
+                    }
+
+                    catch
+                    {
+                        MessageBox.Show("Libro Registrado con Exito!");
+                    }
+
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                        {
+                            mycon.Close();
+                        }
+                    }
+                    txtISBN.Clear();
+                    txtAutor.Clear();
+                    txtTitulo.Clear();
+                    txtGenero.Clear();
+                    txtSeccion.Clear();
+                }
+            }
+        }
+
+        private void TxtGenero_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtISBN.Text == "")
+               || (txtAutor.Text == "")
+               || (txtTitulo.Text == "")
+               || (txtGenero.Text == "")
+               || (txtSeccion.Text == "")
+               || (txtISBN.Text == "000-0-00-000000-0")
+               || (txtISBN.Text == "   - -  -      -"))
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {   //2B
+                        //Contadores
+                        string a = @"(select count(*) from Libro_Mstr where Libro_Titulo ='" + txtTitulo.Text.ToString() + "')";
+                        string b = @"(select count(*) from Autor_Mstr where Autor_Nombre ='" + txtAutor.Text.ToString() + "')";
+                        string c = @"(select count(*) from Genero_Mstr where Genero_Nombre ='" + txtGenero.Text.ToString() + "')";
+
+                        //Commands SQL
+
+                        //Insertar Autor
+                        SqlCommand amd = new SqlCommand("Insert into Autor_Mstr(Autor_Nombre)values('" + txtAutor.Text.ToString() + "')", mycon);
+
+                        //Insertar Genero
+                        SqlCommand bmd = new SqlCommand("Insert into Genero_Mstr(Genero_Nombre)values('" + txtGenero.Text.ToString() + "')", mycon);
+
+                        //Insertar Info Libro
+                        SqlCommand cmd = new SqlCommand("Insert into Libro_Mstr(Libro_ISBN, Libro_Titulo, Libro_Seccion, Autor_Nombre, Genero_Nombre)values('" + txtISBN.Text.ToString() + "','" + txtTitulo.Text.ToString() + "','" + txtSeccion.Text.ToString() + "','" + txtAutor.Text.ToString() + "','" + txtGenero.Text.ToString() + "')", mycon);
+
+                        //Update Autor_ID
+                        SqlCommand dmd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Autor_ID = Autor_Mstr.Autor_ID FROM Autor_Mstr WHERE Libro_Mstr.Libro_ISBN = '" + txtISBN.Text.ToString() + "' AND Autor_Mstr.Autor_Nombre = '" + txtAutor.Text.ToString() + "')", mycon);
+
+                        //Update Genero_ID
+                        SqlCommand emd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID FROM Genero_Mstr WHERE Genero_Nombre = @gn AND  Libro_Mstr.Libro_ISBN = @ISBN", mycon);
+
+
+                        mycon.Open();
+
+                        //Contadores en SQL
+                        SqlCommand cmda = new SqlCommand(a, mycon);
+                        SqlCommand cmdb = new SqlCommand(b, mycon);
+                        SqlCommand cmdc = new SqlCommand(c, mycon);
+                        int counta = (int)cmda.ExecuteScalar();
+                        int countb = (int)cmdb.ExecuteScalar();
+                        int countc = (int)cmdc.ExecuteScalar();
+
+                        //Agregar Libro Nuevo
+                        if ((counta == 0)
+                        && (countb == 0)
+                        && (countc == 0))
+                        {
+                            amd.ExecuteNonQuery();
+                            bmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Genero ya existente
+                        else if ((counta == 0)
+                        && (countb == 0)
+                        && (countc > 0))
+                        {
+                            amd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Autor Existente
+                        else if ((counta == 0)
+                        && (countb > 0)
+                        && (countc == 0))
+                        {
+                            bmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Autor y Genero Existente
+                        else if ((counta == 0)
+                        && (countb > 0)
+                        && (countc > 0))
+                        {
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Este libro ya está registrado.");
+                        }
+
+                        mycon.Close();
+                    }
+
+                    catch
+                    {
+                        MessageBox.Show("Libro Registrado con Exito!");
+                    }
+
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                        {
+                            mycon.Close();
+                        }
+                    }
+                    txtISBN.Clear();
+                    txtAutor.Clear();
+                    txtTitulo.Clear();
+                    txtGenero.Clear();
+                    txtSeccion.Clear();
+                }
+            }
+        }
+
+        private void TxtSeccion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((txtISBN.Text == "")
+               || (txtAutor.Text == "")
+               || (txtTitulo.Text == "")
+               || (txtGenero.Text == "")
+               || (txtSeccion.Text == "")
+               || (txtISBN.Text == "000-0-00-000000-0")
+               || (txtISBN.Text == "   - -  -      -"))
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    try
+                    {   //2B
+                        //Contadores
+                        string a = @"(select count(*) from Libro_Mstr where Libro_Titulo ='" + txtTitulo.Text.ToString() + "')";
+                        string b = @"(select count(*) from Autor_Mstr where Autor_Nombre ='" + txtAutor.Text.ToString() + "')";
+                        string c = @"(select count(*) from Genero_Mstr where Genero_Nombre ='" + txtGenero.Text.ToString() + "')";
+
+                        //Commands SQL
+
+                        //Insertar Autor
+                        SqlCommand amd = new SqlCommand("Insert into Autor_Mstr(Autor_Nombre)values('" + txtAutor.Text.ToString() + "')", mycon);
+
+                        //Insertar Genero
+                        SqlCommand bmd = new SqlCommand("Insert into Genero_Mstr(Genero_Nombre)values('" + txtGenero.Text.ToString() + "')", mycon);
+
+                        //Insertar Info Libro
+                        SqlCommand cmd = new SqlCommand("Insert into Libro_Mstr(Libro_ISBN, Libro_Titulo, Libro_Seccion, Autor_Nombre, Genero_Nombre)values('" + txtISBN.Text.ToString() + "','" + txtTitulo.Text.ToString() + "','" + txtSeccion.Text.ToString() + "','" + txtAutor.Text.ToString() + "','" + txtGenero.Text.ToString() + "')", mycon);
+
+                        //Update Autor_ID
+                        SqlCommand dmd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Autor_ID = Autor_Mstr.Autor_ID FROM Autor_Mstr WHERE Libro_Mstr.Libro_ISBN = '" + txtISBN.Text.ToString() + "' AND Autor_Mstr.Autor_Nombre = '" + txtAutor.Text.ToString() + "')", mycon);
+
+                        //Update Genero_ID
+                        SqlCommand emd = new SqlCommand("UPDATE Libro_Mstr SET Libro_Mstr.Genero_ID = Genero_Mstr.Genero_ID FROM Genero_Mstr WHERE Genero_Nombre = @gn AND  Libro_Mstr.Libro_ISBN = @ISBN", mycon);
+
+
+                        mycon.Open();
+
+                        //Contadores en SQL
+                        SqlCommand cmda = new SqlCommand(a, mycon);
+                        SqlCommand cmdb = new SqlCommand(b, mycon);
+                        SqlCommand cmdc = new SqlCommand(c, mycon);
+                        int counta = (int)cmda.ExecuteScalar();
+                        int countb = (int)cmdb.ExecuteScalar();
+                        int countc = (int)cmdc.ExecuteScalar();
+
+                        //Agregar Libro Nuevo
+                        if ((counta == 0)
+                        && (countb == 0)
+                        && (countc == 0))
+                        {
+                            amd.ExecuteNonQuery();
+                            bmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Genero ya existente
+                        else if ((counta == 0)
+                        && (countb == 0)
+                        && (countc > 0))
+                        {
+                            amd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Autor Existente
+                        else if ((counta == 0)
+                        && (countb > 0)
+                        && (countc == 0))
+                        {
+                            bmd.ExecuteNonQuery();
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        //Agregar Libro Nuevo con Autor y Genero Existente
+                        else if ((counta == 0)
+                        && (countb > 0)
+                        && (countc > 0))
+                        {
+                            cmd.ExecuteNonQuery();
+                            dmd.ExecuteNonQuery();
+                            emd.ExecuteNonQuery();
+                            MessageBox.Show("Libro Registrado con Exito!");
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Este libro ya está registrado.");
+                        }
+
+                        mycon.Close();
+                    }
+
+                    catch
+                    {
+                        MessageBox.Show("Libro Registrado con Exito!");
+                    }
+
+                    finally
+                    {
+                        if (mycon.State == ConnectionState.Open)
+                        {
+                            mycon.Close();
+                        }
+                    }
+                    txtISBN.Clear();
+                    txtAutor.Clear();
+                    txtTitulo.Clear();
+                    txtGenero.Clear();
+                    txtSeccion.Clear();
+                }
+            }
+        }
+
+        private void MaskedTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((maskedTextBox1.Text == "")
+                || (maskedTextBox1.Text == "  -")
+                || (textBox1.Text == ""))
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    mycon.Open();
+
+                    //Contadores
+                    string s2 = @"(select count(*) from Alumno_Mstr where Alumno_Matricula = '" + maskedTextBox1.Text.ToString() + "')";
+                    string s3 = @"(select count(*) from Libro_Mstr where Libro_Titulo = '" + textBox1.Text.ToString() + "')";
+                    string s1 = @"(select count(*) from Orden_Mstr where Alumno_Matricula ='" + maskedTextBox1.Text.ToString() + "' AND Ord_Estado = 'Alquilado')";
+                    SqlCommand edm = new SqlCommand(s1, mycon);
+                    SqlCommand adm = new SqlCommand(s2, mycon);
+                    SqlCommand bdm = new SqlCommand(s3, mycon);
+                    int cont1 = (int)edm.ExecuteScalar();
+                    int cont2 = (int)adm.ExecuteScalar();
+                    int cont3 = (int)bdm.ExecuteScalar();
+
+                    //Queries
+                    string foxtrot = @"Insert into Orden_Mstr(Alumno_Matricula, Libro_Titulo, Fecha_Alquiler, Fecha_Devolucion, Ord_Estado)VALUES(@matriculaest, @titulo, @FechaA, @FechaB, 'Alquilado')";
+
+                    //Insertar Matricula
+                    SqlCommand query1 = new SqlCommand(foxtrot, mycon);
+                    query1.Parameters.Add("@FechaA", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
+                    query1.Parameters.Add("@FechaB", SqlDbType.Date).Value = dateTimePicker2.Value.Date;
+                    query1.Parameters.Add("@matriculaest", SqlDbType.VarChar).Value = maskedTextBox1.Text;
+                    query1.Parameters.Add("@titulo", SqlDbType.VarChar).Value = textBox1.Text;
+
+                    if ((cont2 == 0))
+                    {
+                        MessageBox.Show("Este estudiante no existe.");
+                        maskedTextBox1.Clear();
+                        textBox1.Clear();
+
+                    }
+
+                    else
+                    {
+                        if ((cont3 == 0))
+                        {
+                            MessageBox.Show("Este libro no existe.");
+                            maskedTextBox1.Clear();
+                            textBox1.Clear();
+                        }
+
+                        else
+                        {
+                            if ((cont1 == 0))
+                            {
+                                //Proceso
+                                query1.ExecuteNonQuery();
+                                MessageBox.Show("Libro Alquilado con exito!");
+                                maskedTextBox1.Clear();
+                                textBox1.Clear();
+                            }
+
+                            else
+                            {
+
+                                MessageBox.Show("Este estudiante ya tiene un libro alquilado.");
+                                maskedTextBox1.Clear();
+                                textBox1.Clear();
+                            }
+                        }
+                    }
+
+                    mycon.Close();
+                }
+            }
+        }
+
+        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((maskedTextBox1.Text == "")
+                || (maskedTextBox1.Text == "  -")
+                || (textBox1.Text == ""))
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    mycon.Open();
+
+                    //Contadores
+                    string s2 = @"(select count(*) from Alumno_Mstr where Alumno_Matricula = '" + maskedTextBox1.Text.ToString() + "')";
+                    string s3 = @"(select count(*) from Libro_Mstr where Libro_Titulo = '" + textBox1.Text.ToString() + "')";
+                    string s1 = @"(select count(*) from Orden_Mstr where Alumno_Matricula ='" + maskedTextBox1.Text.ToString() + "' AND Ord_Estado = 'Alquilado')";
+                    SqlCommand edm = new SqlCommand(s1, mycon);
+                    SqlCommand adm = new SqlCommand(s2, mycon);
+                    SqlCommand bdm = new SqlCommand(s3, mycon);
+                    int cont1 = (int)edm.ExecuteScalar();
+                    int cont2 = (int)adm.ExecuteScalar();
+                    int cont3 = (int)bdm.ExecuteScalar();
+
+                    //Queries
+                    string foxtrot = @"Insert into Orden_Mstr(Alumno_Matricula, Libro_Titulo, Fecha_Alquiler, Fecha_Devolucion, Ord_Estado)VALUES(@matriculaest, @titulo, @FechaA, @FechaB, 'Alquilado')";
+
+                    //Insertar Matricula
+                    SqlCommand query1 = new SqlCommand(foxtrot, mycon);
+                    query1.Parameters.Add("@FechaA", SqlDbType.Date).Value = dateTimePicker1.Value.Date;
+                    query1.Parameters.Add("@FechaB", SqlDbType.Date).Value = dateTimePicker2.Value.Date;
+                    query1.Parameters.Add("@matriculaest", SqlDbType.VarChar).Value = maskedTextBox1.Text;
+                    query1.Parameters.Add("@titulo", SqlDbType.VarChar).Value = textBox1.Text;
+
+                    if ((cont2 == 0))
+                    {
+                        MessageBox.Show("Este estudiante no existe.");
+                        maskedTextBox1.Clear();
+                        textBox1.Clear();
+
+                    }
+
+                    else
+                    {
+                        if ((cont3 == 0))
+                        {
+                            MessageBox.Show("Este libro no existe.");
+                            maskedTextBox1.Clear();
+                            textBox1.Clear();
+                        }
+
+                        else
+                        {
+                            if ((cont1 == 0))
+                            {
+                                //Proceso
+                                query1.ExecuteNonQuery();
+                                MessageBox.Show("Libro Alquilado con exito!");
+                                maskedTextBox1.Clear();
+                                textBox1.Clear();
+                            }
+
+                            else
+                            {
+
+                                MessageBox.Show("Este estudiante ya tiene un libro alquilado.");
+                                maskedTextBox1.Clear();
+                                textBox1.Clear();
+                            }
+                        }
+                    }
+
+                    mycon.Close();
+                }
+            }
+        }
+
+        private void MaskedTextBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if ((maskedTextBox2.Text == "")
+                || (maskedTextBox2.Text == "  -"))
+                {
+                    MessageBox.Show("Por favor llenar todos los campos.");
+                }
+
+                else
+                {
+                    mycon.Open();
+
+                    string s4 = @"(select count(*) from Orden_Mstr where Alumno_Matricula = '" + maskedTextBox2.Text.ToString() + "')";
+                    string s5 = @"(select count(*) from Orden_Mstr where Ord_Estado = 'Alquilado')";
+                    SqlCommand zdm = new SqlCommand(s4, mycon);
+                    SqlCommand ydm = new SqlCommand(s5, mycon);
+                    int cont4 = (int)zdm.ExecuteScalar();
+                    int cont5 = (int)ydm.ExecuteScalar();
+
+
+                    if ((cont4 > 0)
+                    && cont5 > 0)
+                    {
+                        string s2 = @"UPDATE Orden_Mstr SET Ord_Estado = 'Devuelto' WHERE Alumno_Matricula = @matricula AND Ord_Estado = 'Alquilado';";
+                        SqlCommand cdmz = new SqlCommand(s2, mycon);
+                        cdmz.Parameters.Add("@Matricula", SqlDbType.VarChar).Value = maskedTextBox2.Text;
+                        cdmz.ExecuteNonQuery();
+                        MessageBox.Show("Libro Devuelto con exito!");
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Este estudiante no tiene un libro alquilado.");
+                    }
+
+                    mycon.Close();
                 }
             }
         }

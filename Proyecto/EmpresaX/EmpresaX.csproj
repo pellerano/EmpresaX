@@ -46,6 +46,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BibliotecaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BibliotecaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Lista de Autores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lista de Autores.Designer.cs">
+      <DependentUpon>Lista de Autores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lista de Estudiantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lista de Estudiantes.Designer.cs">
+      <DependentUpon>Lista de Estudiantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lista de Generos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lista de Generos.Designer.cs">
+      <DependentUpon>Lista de Generos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lista de Libros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lista de Libros.Designer.cs">
+      <DependentUpon>Lista de Libros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lista de Ordenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lista de Ordenes.Designer.cs">
+      <DependentUpon>Lista de Ordenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lista de Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lista de Usuarios.Designer.cs">
+      <DependentUpon>Lista de Usuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +101,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Lista de Autores.resx">
+      <DependentUpon>Lista de Autores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lista de Estudiantes.resx">
+      <DependentUpon>Lista de Estudiantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lista de Generos.resx">
+      <DependentUpon>Lista de Generos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lista de Libros.resx">
+      <DependentUpon>Lista de Libros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lista de Ordenes.resx">
+      <DependentUpon>Lista de Ordenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lista de Usuarios.resx">
+      <DependentUpon>Lista de Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +134,18 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <None Include="BibliotecaDataSet.xsc">
+      <DependentUpon>BibliotecaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BibliotecaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BibliotecaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BibliotecaDataSet.xss">
+      <DependentUpon>BibliotecaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

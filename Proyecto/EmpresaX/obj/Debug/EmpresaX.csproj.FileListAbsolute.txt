@@ -20,3 +20,11 @@ C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\Empre
 C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.exe
 C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.pdb
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\RdlCompile.cache
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\RdlCompile.compiled
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.Lista_de_Libros.resources
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.Lista_de_Autores.resources
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.Lista_de_Generos.resources
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.Lista_de_Usuarios.resources
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.Lista_de_Estudiantes.resources
+C:\Users\User\Documents\Hermes\Hermes UNPHU\INF-353 - Analisis II\Proyecto\EmpresaX\obj\Debug\EmpresaX.Lista_de_Ordenes.resources
